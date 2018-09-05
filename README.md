@@ -1,10 +1,12 @@
 # lsp-julia
 
-Julia support for the [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode) package using the [LanguageServer.jl](https://github.com/JuliaEditorSupport/LanguageServer.jl) package. For information on the features `lsp-mode` provides see their [website](https://github.com/emacs-lsp/lsp-mode).
+Julia support for the [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
+package using the
+[LanguageServer.jl](https://github.com/JuliaEditorSupport/LanguageServer.jl)
+package. For information on the features `lsp-mode` provides see their
+[git repository](https://github.com/emacs-lsp/lsp-mode).
 
-It's recommended to use this package with the Emacs Speaks Statistics ([ESS](https://github.com/emacs-ess/ESS)) package.
-
-*A julia version >= 0.6 has to be in your path*
+*A julia version == 0.6.x has to be in your path*
 
 _This package is still under development._
 
@@ -16,22 +18,35 @@ Open a Julia REPL and install LanguageServer.jl.
 julia> Pkg.add("LanguageServer")
 ```
 
-### Installing `lsp-julia`
+Additionally because JIT compilation of LanguageServer.jl can cause a long delay
+which may cause issues with lsp-mode, I recommend using
+[PackageCompiler.jl](https://github.com/JuliaLang/PackageCompiler.jl) to AOT
+compile LanguageServer.jl into your julia image. Something like:
 
-Clone this repository to a suitable path. Add the following lines to your `.emacs` file:
-
-```emacs-lisp
-(add-to-list 'load-path "<path to lsp-mode>")
-(add-to-list 'load-path "<path to lsp-julia>")
-(with-eval-after-load 'lsp-mode
-    (require 'lsp-flycheck))
-(require 'lsp-julia)
-(require 'lsp-mode)
+```julia
+julia> Pkg.add("PackageCompiler")
+julia> using PackageCompiler
+julia> compile_package("LanguageServer")
 ```
 
-### Using `lsp-julia` with ESS
+See the documentation on PackageCompiler.jl for further usage details.
 
-First, make sure that the ESS package is installed by following the instruction presented on their [website](https://github.com/emacs-ess/ESS/wiki/Julia). Then in addition to the above, add the following to your `.emacs` file.
+### Installing `lsp-julia`
+
+It's currently easiest to install this package with quelpa. I'll see about
+getting this added to melpa soon enough.
+
+```emacs-lisp
+(quelpa '(lsp-julia :fetcher github :repo "non-Jedi/lsp-julia"))
+```
+
+### Using `lsp-julia` with a julia major mode
+
+After installing the major mode of your choice for editing Julia files
+([julia-mode](https://github.com/JuliaEditorSupport/julia-emacs),
+[ess](https://ess.r-project.org/), etc.), add `'lsp-mode` to the hook for that
+major mode. For example, to use `lsp-julia` with ess, add the following to your
+`.emacs` file:
 
 ```emacs-lisp
 (add-hook 'ess-julia-mode-hook #'lsp-mode)
