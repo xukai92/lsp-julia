@@ -1,12 +1,14 @@
 ;;; lsp-julia.el --- Julia support for lsp-mode
 
-;; Copyright (C) 2017 Martin Wolke <vibhavp@gmail.com>
+;; Copyright (C) 2017 Martin Wolke, 2018 Adam Beckmeyer
 
-;; Author: Martin Wolke
+;; Author: Martin Wolke <vibhavp@gmail.com>
+;;         Adam Beckmeyer <adam_git@thebeckmeyers.xyz>
+;; Maintainer: Adam Beckmeyer <adam_git@thebeckmeyers.xyz>
 ;; Version: 0.1.0
-;; Package-Requires: ((lsp-mode "3.0"))
-;; Keywords: julia, language server
-;; URL: https://github.com/emacs-lsp/lsp-python
+;; Package-Requires: (lsp-mode)
+;; Keywords: languages, tools
+;; URL: https://github.com/non-Jedi/lsp-julia
 
 ;;; Code:
 (require 'lsp-mode)
