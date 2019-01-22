@@ -3,7 +3,7 @@
 Julia support for the [[https://github.com/emacs-lsp/lsp-mode][=lsp-mode=]] package using the [[https://github.com/JuliaEditorSupport/LanguageServer.jl][LanguageServer.jl]] package.
 For information on the features =lsp-mode= provides see their [[https://github.com/emacs-lsp/lsp-mode][git repository]].
 
-/A julia version == 0.6.x has to be in your path/
+/A julia version 1.0 or higher has to be in your path/
 
 /This package is still under development./
 
