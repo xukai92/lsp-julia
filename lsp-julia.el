@@ -83,7 +83,7 @@ Set to nil if you want to use the globally installed versions."
   :group 'lsp-julia)
 
 (defcustom lsp-julia-timeout 30
-  "Time before lsp-mode should assume julia just ain't gonna start."
+  "Time before symbol `lsp-mode' should assume julia just ain't gonna start."
   :type 'number
   :group 'lsp-julia)
 
