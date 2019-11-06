@@ -107,13 +107,12 @@ Set to nil if you want to use the globally installed versions."
   "The command to lauch the Julia Language Server."
   `(,lsp-julia-command
     ,@lsp-julia-flags
-    ,(concat "-e using LanguageServer, Sockets, SymbolServer;"
-             " server = LanguageServer.LanguageServerInstance("
+    ,(concat "-e using LanguageServer;"
+             " server = LanguageServerInstance("
              " stdin, stdout, false,"
              " \"" (lsp-julia--get-root) "\","
              " \"" (lsp-julia--get-depot-path) "\","
              "Dict());"
-             " server.runlinter = true;"
              " run(server);")))
 
 (defconst lsp-julia--handlers
