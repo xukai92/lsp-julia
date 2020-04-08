@@ -8,7 +8,7 @@
 ;; Maintainer: Adam Beckmeyer <adam_git@thebeckmeyers.xyz>
 ;;             Guido Kraemer <gdkrmr@users.noreply.github.com>
 ;; Keywords: languages, tools
-;; Version: 0.1.1
+;; Version: 0.2.0
 ;; Package-Requires: ((emacs "25.1") (lsp-mode "6.0") (julia-mode "0.3"))
 ;; Keywords: languages, tools
 ;; URL: https://github.com/non-Jedi/lsp-julia
@@ -37,6 +37,7 @@
 
 ;;; Commentary:
 
+;; This version of lsp-julia requires julia 1.3 to run.
 ;; Manual installation:
 
 ;; (require 'julia-mode)
