@@ -50,7 +50,9 @@ It's currently easiest to install this package with quelpa. I'll see
 about getting this added to melpa soon enough.
 
 #+BEGIN_SRC emacs-lisp
-    (quelpa '(lsp-julia :fetcher github :repo "non-Jedi/lsp-julia"))
+  (quelpa '(lsp-julia :fetcher github
+                      :repo "non-Jedi/lsp-julia"
+                      :files (:defaults "languageserver")))
 #+END_SRC
 
 *** Using =lsp-julia= with a julia major mode
