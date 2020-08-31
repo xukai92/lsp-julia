@@ -1,6 +1,6 @@
 ;;; lsp-julia.el --- Julia support for lsp-mode   -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017 Martin Wolke, 2018 Adam Beckmeyer, 2019 Guido Kraemer
+;; Copyright (C) 2017 Martin Wolke, 2018 Adam Beckmeyer, 2019-2020 Guido Kraemer
 
 ;; Author: Martin Wolke <vibhavp@gmail.com>
 ;;         Adam Beckmeyer <adam_git@thebeckmeyers.xyz>
