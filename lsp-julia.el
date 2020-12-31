@@ -1,6 +1,6 @@
 ;;; lsp-julia.el --- Julia support for lsp-mode   -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017 Martin Wolke, 2018 Adam Beckmeyer, 2019-2020 Guido Kraemer
+;; Copyright (C) 2017 Martin Wolke, 2018 Adam Beckmeyer, 2019-2021 Guido Kraemer
 
 ;; Author: Martin Wolke <vibhavp@gmail.com>
 ;;         Adam Beckmeyer <adam_git@thebeckmeyers.xyz>
@@ -276,7 +276,9 @@ body."
   "The command to lauch the Julia Language Server."
   `(,lsp-julia-command
     ,@lsp-julia-flags
-    ,(concat "-e using InteractiveUtils, Sockets, SymbolServer, LanguageServer;"
+    ,(concat "-e"
+             "import Pkg; Pkg.instantiate(); "
+             "using InteractiveUtils, Sockets, SymbolServer, LanguageServer;"
              " server = LanguageServer.LanguageServerInstance("
              " stdin, stdout,"
              (lsp-julia--get-root) ","
