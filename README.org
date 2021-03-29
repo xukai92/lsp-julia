@@ -28,8 +28,9 @@ The included server is used by default. To use the manually installed one, you
 need to also add the following to your init.el:
 
 #+BEGIN_SRC emacs-lisp
-    (setq lsp-julia-package-dir nil)
-    ;; (require 'lsp-julia) must come after this!
+  (setq lsp-julia-package-dir nil)
+  (setq lsp-julia-flags `("-J/path/to/languageserver.so"))
+  ;; (require 'lsp-julia) must come after this!
 #+END_SRC
 
 Additionally because JIT compilation of LanguageServer.jl can cause a long delay
@@ -37,9 +38,9 @@ which may cause issues with lsp-mode, I recommend using [[https://github.com/Jul
 AOT compile LanguageServer.jl into your julia image. Something like:
 
 #+BEGIN_EXAMPLE julia
-    julia> Pkg.add("PackageCompiler")
-    julia> using PackageCompiler
-    julia> compile_package("LanguageServer")
+  julia> Pkg.add("PackageCompiler")
+  julia> using PackageCompiler
+  julia> create_sysimage(:LanguageServer, sysimage_path="/path/to/languageserver.so")
 #+END_EXAMPLE
 
 See the documentation on PackageCompiler.jl for further usage details.
