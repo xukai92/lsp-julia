@@ -288,16 +288,16 @@ body."
              (lsp-julia--symbol-server-store-path-to-jl) ");"
              " run(server);")))
 
-(defun lsp-julia-update-languageserver ()
-  "The command to update the Julia Language Server."
-  (interactive)
-  (apply 'start-process
-         "lsp-julia-languageserver-updater"
-         "*lsp-julia-languageserver-updater*"
-         lsp-julia-command
-         (append lsp-julia-flags
-                 '("-e import Pkg; println(Pkg.project().path); Pkg.update()"))
-         ))
+;; (defun lsp-julia-update-languageserver ()
+;;   "The command to update the Julia Language Server."
+;;   (interactive)
+;;   (apply 'start-process
+;;          "lsp-julia-languageserver-updater"
+;;          "*lsp-julia-languageserver-updater*"
+;;          lsp-julia-command
+;;          (append lsp-julia-flags
+;;                  '("-e import Pkg; println(Pkg.project().path); Pkg.update()"))
+;;          ))
 
 (defconst lsp-julia--handlers
   '(("window/setStatusBusy" .
