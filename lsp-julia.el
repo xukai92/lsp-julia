@@ -276,17 +276,19 @@ body."
   "The command to lauch the Julia Language Server."
   `(,lsp-julia-command
     ,@lsp-julia-flags
-    ,(concat "-e"
+    ,(concat "-e "
+             "'"
              "import Pkg; Pkg.instantiate(); "
-             "using InteractiveUtils, Sockets, SymbolServer, LanguageServer;"
-             " Union{Int64, String}(x::String) = x; "
-             " server = LanguageServer.LanguageServerInstance("
-             " stdin, stdout,"
-             (lsp-julia--get-root) ","
-             (lsp-julia--get-depot-path) ","
-             " nothing, "
-             (lsp-julia--symbol-server-store-path-to-jl) ");"
-             " run(server);")))
+             "using InteractiveUtils, Sockets, SymbolServer, LanguageServer; "
+             "Union{Int64, String}(x::String) = x; "
+             "server = LanguageServer.LanguageServerInstance("
+             "stdin, stdout, "
+             (lsp-julia--get-root) ", "
+             (lsp-julia--get-depot-path) ", "
+             "nothing, "
+             (lsp-julia--symbol-server-store-path-to-jl) "); "
+             "run(server);"
+             "'")))
 
 (defun lsp-julia-update-languageserver ()
   "The command to update the Julia Language Server."
